@@ -19,6 +19,7 @@ export default props => {
                 name: employeeName.current.value,
                 locationId: locationId
             })
+            .then(() => props.history.push("/employees"))
         }
     }
 
