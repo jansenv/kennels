@@ -9,6 +9,8 @@ import CustomerList from "./customers/CustomerList"
 import { EmployeeProvider } from "./employees/EmployeeProvider"
 import EmployeeList from "./employees/EmployeeList"
 import EmployeeForm from "./employees/EmployeeForm"
+import AnimalForm from "./animal/AnimalForm"
+import AnimalDetails from "./animal/AnimalDetails"
 
 export default (props) => {
     return (
@@ -24,9 +26,15 @@ export default (props) => {
                 <LocationProvider>
                     <CustomerProvider>
                         {/* Render the animal list when http://localhost:3000/ */}
-                        <Route path="/animals">
-                            <AnimalList />
-                        </Route>
+                        <Route exact path="/animals" render={
+                            props => <AnimalList {...props} />
+                        } />
+                        <Route exact path="/animals/create" render={
+                            props => <AnimalForm {...props} />
+                        } />
+                        <Route path="/animals/:animalId(\d+)" render={
+                            props => <AnimalDetails {...props} />
+                        } />
                     </CustomerProvider>
                 </LocationProvider>
             </AnimalProvider>

@@ -28,6 +28,7 @@ export const AnimalProvider = (props) => {
 
     useEffect(() => {
         console.log("**** ANIMAL APPLICATION STATE CHANGED ****")
+        console.log(animals)
     }, [animals])
 
     return (
