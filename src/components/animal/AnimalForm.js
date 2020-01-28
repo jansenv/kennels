@@ -4,7 +4,7 @@ import { AnimalContext } from "./AnimalProvider"
 
 export default props => {
     const { locations } = useContext(LocationContext)
-    const { addAnimal } = useContext(AnimalContext)
+    const { addAnimals } = useContext(AnimalContext)
     const name = useRef("")
     const breed = useRef("")
     const location = useRef(0)
@@ -12,18 +12,10 @@ export default props => {
     const constructNewAnimal = () => {
         const locationId = parseInt(location.current.value)
 
-        // {
-        //     "id": 3,
-        //     "name": "Frisbee",
-        //     "breed": "Schnauzer",
-        //     "customerId": 3,
-        //     "locationId": 1,
-        // }
-
         if (locationId === 0) {
             window.alert("Please select a location")
         } else {
-            addAnimal({
+            addAnimals({
                 name: name.current.value,
                 breed: breed.current.value,
                 locationId: locationId,
@@ -44,7 +36,7 @@ export default props => {
                         name = "animalName"
                         ref = {name}
                         required
-                        autofocus
+                        autoFocus
                         className = "form-control"
                         placeholder = "Animal name"
                     />
