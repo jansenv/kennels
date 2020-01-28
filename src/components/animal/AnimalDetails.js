@@ -5,7 +5,7 @@ import { AnimalContext } from "./AnimalProvider"
 import "./Animals.css"
 
 export default (props) => {
-    const { animals } = useContext(AnimalContext)
+    const { animals, deleteAnimal } = useContext(AnimalContext)
     const { locations } = useContext(LocationContext)
     const { customers } = useContext(CustomerContext)
 
@@ -21,6 +21,16 @@ export default (props) => {
             <div className="animal__breed">{animal.breed}</div>
             <div className="animal__location">Location: {location.name}</div>
             <div className="animal__owner">Customer: {customer.name}</div>
+            <button onClick = {
+                () => {
+                    deleteAnimal(animal)
+                        .then(() => {
+                            props.history.push("/animals")
+                        })
+                }
+            }>
+                Release Animal
+            </button>
         </section>
     )
 }
