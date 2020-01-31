@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 export default ({ animal }) => (
     <section className="animal">
-        <h3 className="animal__name">{animal.name}
+        <h3 className="animal__name">
 
 
             <Link to = {`animals/${animal.id}`}>
